@@ -21,6 +21,7 @@ html, body {
     padding: 10px;
     position: fixed;
     right: 25px;
+    z-index: 99;
 }
 
 .fab-danger {
