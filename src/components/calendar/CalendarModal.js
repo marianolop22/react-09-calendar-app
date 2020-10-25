@@ -19,7 +19,10 @@ const customStyles = {
   }
 };
 
-Modal.setAppElement('#root');
+//esto es por el id root del index.html
+if ( process.env.NODE_ENV !== 'test') {
+    Modal.setAppElement('#root');
+}
 
 const now = moment().minutes(0).seconds(0).add(1,'hours');
 const then = now.clone().add(1,'hours');
@@ -122,6 +125,7 @@ export const CalendarModal = () => {
             closeTimeoutMS={200}
             className="modal"
             overlayClassName="modal-fondo"
+            ariaHideApp= { !process.env.NODE_ENV === 'test' }
 
         >
             <h1> { activeEvent ? 'Editar evento' : 'Nuevo evento'} </h1>
